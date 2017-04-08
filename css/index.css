@@ -44,7 +44,7 @@ ul li{
     position: relative;
 }
 .index_type li span{
-    
+
     font-size: 14px;
     text-decoration: none;
 }
@@ -63,6 +63,7 @@ ul li{
 }
 .index_type li:hover .nav_type_list{
 	display: block;
+	border: 1px solid #B1191A;
 }
 
 

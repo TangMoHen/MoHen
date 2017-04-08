@@ -54,6 +54,9 @@
 	border:1px solid #C81623;
 	box-shadow: 5px 5px 5px #DBDBDB;
 }
+.hsai:hover .nav_type_list{
+	border: 1px solid #B1191A;
+}
 .j_nav .no-margin{
 	margin-right: 0px;
 }
