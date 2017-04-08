@@ -7,6 +7,7 @@
 		<link rel="stylesheet" type="text/css" href="./css/footer.css"/>
 		<link rel="stylesheet" type="text/css" href="./css/head.css"/>
 		<link rel="stylesheet" type="text/css" href="./css/goods.css"/>
+		<script src="js/jquery-1.7.1.min.js"></script>
 	</head>
 	<body>
 		<!--顶部公用-->
@@ -68,7 +69,7 @@
 	    			    </a>
 	    		    </div>
 	    		    <div class="h_c_bz">
-	    			    <img src="./images/top_center.jpg" style="width: 467px;29px"/>
+	    			    <img src="./images/top_center.jpg" style="width: 467px;"/>
 	    		    </div>
 	    		    <div class="h_c_search">
 	    			    <div class="search_input">
@@ -762,20 +763,52 @@
 	    		    <span>收藏</span>
 	    		</div>
 	    	</div>
-	        <div class="f_bottom">
-	        	<div class="f_sao">
-	        		<i class="ewm_img"></i>
-	        	</div>
-	        	<div class="f_ke">
-	        		<i class="online_cus"></i>
-	        	</div>
-	        	<div class="top_is">
-	    		    <a href="javascipt:;">
-	    		    	<i class="retrun_top"></i>
-	    		    </a>
-	    		</div>
+	        <div class="f_bottom"><div class="f_sao">
+				<div class="sao">
+					<i class="ewm_img"></i>
+					<div class="ewm_tc">
+						<div class="ewm_tc_bg">
+							<div class="down_app_icon"></div>
+							<img src="images/down_app_ewm.png">
+						</div>
+					</div>
+				</div>
+				<div class="f_ke">
+					<i class="online_cus"></i>
+				</div>
+				<div class="top_is">
+					<a href="javascipt:;">
+						<i class="retrun_top" id="scrollUp" style="display:none;"></i>
+					</a>
+				</div>
+			</div>
 	        </div>
 	    </div>
 	    <!--左侧导航-->
 	</body>
+	<script>
+			$(function(){
+				var $body = $(document.body);;
+				var $bottomTools = $('.bottom_tools');
+				var $qrTools = $('.qr_tool');
+				var qrImg = $('.qr_img');
+					$(window).scroll(function () {
+						var scrollHeight = $(document).height();
+						var scrollTop = $(window).scrollTop();
+						var $footerHeight = $('.page-footer').outerHeight(true);
+						var $windowHeight = $(window).innerHeight();
+						scrollTop > 50 ? $("#scrollUp").fadeIn(200).css("display","block") : $("#scrollUp").fadeOut(200);
+						$bottomTools.css("bottom", scrollHeight - scrollTop - $footerHeight > $windowHeight ? 40 : $windowHeight + scrollTop + $footerHeight + 40 - scrollHeight);
+					});
+					$('#scrollUp').click(function (e) {
+						e.preventDefault();
+						$('html,body').animate({ scrollTop:0});
+					});
+					$qrTools.hover(function () {
+						qrImg.fadeIn();
+					}, function(){
+						 qrImg.fadeOut();
+					});
+			});
+	</script>
 </html>
