@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta name="format-detection" content="telephone=no" /> 
 		<title></title>
 		<style type="text/css">
 			#ceshi{
@@ -51,11 +50,11 @@
 		<div id="ceshi">
 			<span id="shut">关闭</span>
 			<p>A.点击复制客服QQ</p>
-			<b id="qq"><img src="QQlogo.png" >2193240994</b>
+			<b><img src="QQlogo.png" ><i id="qq">2193240994</i></b>
 			<p>B.点击复制客服微信</p>
-			<b id="wx"><img src="微信logo.png" >newsea_zhaoli</b>
+			<b><img src="微信logo.png" ><i id="wx">newsea_zhaoli</i></b>
 		</div>
-		<script src="js/jquery-1.7.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			var u = navigator.userAgent;
 			var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android安卓
@@ -65,7 +64,7 @@
 			})
 			$('#qq').on('click',function(){
 				//document.execCommand("Copy");
-				copy('qq','已复制好qq，3秒后跳转至QQ，请在QQ粘贴添加好友');
+				copy('qq','QQ号复制成功 请打开QQ 粘贴添加好友');
 				if(isAndroid == true){
 					location.href="mqqwpa://im/chat?chat_type=wpa&uin=2193240994";
 				}
@@ -75,7 +74,7 @@
 			})
 			$('#wx').on('click',function(){
 				//document.execCommand("Copy");
-				copy('wx','已复制好微信，稍后会跳转至微信，请在微信粘贴添加好友'); 
+				copy('wx','微信号复制成功 请打开微信 粘贴添加好友'); 
 				location.href="weixin://";
 			})
 			function copy(id,text){
@@ -85,13 +84,12 @@
 			        const selection = window.getSelection();
 			        if(selection.rangeCount > 0) selection.removeAllRanges();
 			        selection.addRange(range);
-					// setTimeout(function () {
-					// 	$('.zhezao1').show();
-					// 	$('.tanchuang1').show();
-					// },15000)
 			        document.execCommand('copy');
 					alert(text); 
 			}  //id 是要复制的 元素id   text 是要显示的名字
+			
+			
+			    
 		</script>
 	</body>
 </html>
