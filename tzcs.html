@@ -56,14 +56,21 @@
 		</div>
 		<script src="js/jquery-1.7.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+			var u = navigator.userAgent;
+			var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android安卓
+			var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios苹果
 			$('#shut').on('click',function(){
 				$('#ceshi').css('display','none');
 			})
 			$('#qq').on('click',function(){
 				//document.execCommand("Copy");
-				copy('qq','已复制好qq，稍后会后跳转至QQ，请在QQ粘贴添加好友'); 
-				location.href="mqqwpa://im/chat?chat_type=wpa&uin=2193240994";
-				//location.href="mqqwpa://im/chat？chat_type=wpa&uin=2193240994&version=1&src_type=web&web_src=oicqzone.com";
+				copy('qq','已复制好qq，3秒后跳转至QQ，请在QQ粘贴添加好友');
+				if(isAndroid == true){
+					location.href="mqqwpa://im/chat?chat_type=wpa&uin=2193240994";
+				}
+				if(isiOS == true){
+					location.href="mqqwpa://im/chat?chat_type=wpa&uin=381232999&version=1&src_type=web&web_src=oicqzone.com";
+				}
 			})
 			$('#wx').on('click',function(){
 				//document.execCommand("Copy");
