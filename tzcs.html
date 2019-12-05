@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#ceshi{
+				width: 80vw;
+				height: 70vw;
+				background: #f7f7f7;
+				position: fixed;
+				left: 10vw;
+				top: 20vh;
+				z-index: 99999999999999999;
+				text-align: center;
+				border-radius:10px;
+				box-shadow: 15px 15px 14px #c7c7c7;
+			}
+			#ceshi span{
+				font-size: 30px;
+				text-align: center;
+				width: 90px;
+				height: 60px;
+				line-height: 60px;
+				display: block;
+				position: absolute;
+				right: 10px;
+			}
+			#ceshi p{
+				font-size: 50px;
+			}
+			#ceshi b{
+				display: block;
+				height: 130px;
+				line-height: 130px;
+				font-size: 50px;
+				background: red;
+				color: #FFF;
+				position: relative;
+			}
+			#ceshi b img{
+				width: 90px;
+				position: absolute;
+				top: 20px;
+				left: 90px;
+			}
+		</style>
+	</head>
+	<body style="height: 9999px;">
+		<div id="ceshi">
+			<span id="shut">关闭</span>
+			<p>A.点击复制客服QQ</p>
+			<b id="qq"><img src="QQlogo.png" >2193240994</b>
+			<p>B.点击复制客服微信</p>
+			<b id="wx"><img src="微信logo.png" >newsea_zhaoli</b>
+		</div>
+		<script src="js/jquery-1.7.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$('#shut').on('click',function(){
+				$('#ceshi').css('display','none');
+			})
+			$('#qq').on('click',function(){
+				//document.execCommand("Copy");
+				copy('qq','已复制好qq，3秒后跳转至QQ，请在QQ粘贴添加好友'); 
+				location.href="weixin://";
+			})
+			$('#wx').on('click',function(){
+				//document.execCommand("Copy");
+				copy('wx','已复制好微信，3秒后跳转至微信，请在微信粘贴添加好友'); 
+				location.href="weixin://";
+			})
+			function copy(id,text){
+			        const range = document.createRange();
+			        range.selectNode(document.getElementById(id));
+			
+			        const selection = window.getSelection();
+			        if(selection.rangeCount > 0) selection.removeAllRanges();
+			        selection.addRange(range);
+					// setTimeout(function () {
+					// 	$('.zhezao1').show();
+					// 	$('.tanchuang1').show();
+					// },15000)
+			        document.execCommand('copy');
+					alert(text); 
+			}  //id 是要复制的 元素id   text 是要显示的名字
+		</script>
+	</body>
+</html>
