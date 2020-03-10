@@ -24,7 +24,12 @@
 		<script type="text/javascript">
 			$('#btn').on('click', function() {
 				html2canvas(document.body).then(function(canvas) {
-					document.body.appendChild(canvas);
+					//document.body.appendChild(canvas);
+					var img = new Image();
+					img.src = canvas.toDataURL('png');
+					console.log(img.src);
+					console.log(canvas);
+					document.body.appendChild(img);
 				});
 			})
 		</script>
